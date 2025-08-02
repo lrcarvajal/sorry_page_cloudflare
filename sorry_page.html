@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Affiniti - Acceso denegado</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --green: #00cc33; /* puedes ajustar al verde exacto de branding */
+      --bg: #000;
+      --text: #f0f0f5;
+      --muted: #777;
+      --radius: 10px;
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+    * {box-sizing:border-box;}
+    body {
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:1rem;
+      line-height:1.4;
+    }
+    .card {
+      max-width: 780px;
+      width:100%;
+      background: #111;
+      border: 2px solid var(--green);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,.6);
+    }
+    .logo {
+      height: 48px;
+      display:inline-block;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      margin: 0 0 .25rem 0;
+      font-size: 2.25rem;
+      letter-spacing: 0.5px;
+    }
+    .subtitle {
+      margin:0 0 1rem 0;
+      font-size:1rem;
+      color: var(--muted);
+    }
+    .highlight {
+      color: var(--green);
+    }
+    .info {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0 1.5rem;
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      font-size: .9rem;
+    }
+    .info div {
+      display:flex;
+      flex-direction: column;
+      gap:4px;
+    }
+    .label {
+      text-transform: uppercase;
+      font-size: .55rem;
+      letter-spacing: 1px;
+      color: #999;
+      margin-bottom:2px;
+    }
+    .value {
+      background: rgba(255,255,255,0.03);
+      padding: 6px 10px;
+      border-radius: 6px;
+      word-break: break-all;
+      position: relative;
+    }
+    .btn {
+      display:inline-block;
+      background: var(--green);
+      color: #000;
+      font-weight:600;
+      text-decoration:none;
+      padding: .75rem 1.5rem;
+      border-radius: 6px;
+      margin-top:1rem;
+      transition: filter .2s;
+    }
+    .btn:hover { filter: brightness(1.1); }
+    .footer {
+      margin-top:2rem;
+      font-size:.65rem;
+      color:#555;
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+      justify-content:space-between;
+    }
+    .code {
+      background: rgba(255,255,255,0.04);
+      padding:4px 8px;
+      border-radius:4px;
+      font-family: monospace;
+      display:inline-block;
+    }
+    @media (max-width:800px){
+      h1 { font-size:1.85rem;}
+      .card { padding:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="alert">
+    <img src="logo.png" alt="Affiniti" class="logo" />
+    <h1>Acceso restringido</h1>
+    <p class="subtitle">No se pudo completar tu solicitud. Usa la información de abajo para diagnosticar el problema o compártela con soporte.</p>
+
+    <div class="info">
+      <div>
+        <div class="label">Ray ID</div>
+        <div class="value"><span class="highlight">{{RayID}}</span></div>
+      </div>
+      <div>
+        <div class="label">Tu IP</div>
+        <div class="value">{{ClientIP}}</div>
+      </div>
+      <div>
+        <div class="label">Hora</div>
+        <div class="value">{{Timestamp}}</div>
+      </div>
+      <div>
+        <div class="label">Motivo</div>
+        <div class="value">{{ErrorReason}}</div>
+      </div>
+    </div>
+
+    <p>Si crees que esto es un error, pásale a tu equipo de soporte estos datos: <br>
+      <span class="code">Ray ID</span>, <span class="code">Your IP</span> y el momento en que ocurrió.</p>
+
+    <a class="btn" href="javascript:location.reload();">Reintentar</a>
+
+    <div class="footer">
+      <div>Affiniti &copy; 2025</div>
+      <div style="display:flex; gap:10px;">
+        <div style="display:flex; align-items:center; font-size:.7rem;">
+          <span style="width:10px;height:10px;background:var(--green);display:inline-block;border-radius:2px;margin-right:6px;"></span> Seguridad revisada
+        </div>
+        <div style="display:flex; align-items:center; font-size:.7rem;">
+          <span style="width:10px;height:10px;background:#555;display:inline-block;border-radius:2px;margin-right:6px;"></span> Powered by Cloudflare
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
