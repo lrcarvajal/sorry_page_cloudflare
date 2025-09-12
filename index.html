@@ -29,7 +29,15 @@
 </head>
 <body>
   <div class="card" role="alert">
-    <img src="logo.png" alt="Affiniti" class="logo" />
+    <img
+      src="https://raw.githubusercontent.com/lrcarvajal/affiniti-branding/refs/heads/main/customcolor_A_transparent_background.png"
+      alt="Affiniti"
+      class="logo"
+      width="210"
+      height="48"
+      loading="eager"
+      decoding="async"
+    />
     <h1>Acceso restringido</h1>
     <p class="subtitle">No se pudo completar tu solicitud. Usa la información de abajo para diagnosticar el problema o compártela con soporte.</p>
 
@@ -75,7 +83,7 @@
   </div>
 
   <script>
-    // Muestra la hora local del visitante (ajústalo si quieres UTC)
+    // Hora local del visitante
     try {
       const el = document.getElementById('ts');
       el.textContent = new Date().toLocaleString('es-CL', { hour12:false });
