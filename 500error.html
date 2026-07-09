@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Affiniti - Error del servicio</title>
+<title>Affiniti - Error temporal del servicio</title>
 
 <style>
 :root{
@@ -75,9 +75,9 @@ body:before{
 
 .hero{
   display:grid;
-  grid-template-columns:1fr 230px;
-  gap:46px;
-  align-items:center;
+  grid-template-columns:minmax(0,1fr) 260px;
+  gap:48px;
+  align-items:start;
 }
 
 .badge{
@@ -118,14 +118,14 @@ h1{
 
 .subtitle{
   margin:18px 0 28px;
-  max-width:690px;
+  max-width:760px;
   color:var(--muted);
   font-size:1.08rem;
   line-height:1.55;
 }
 
 .alert{
-  max-width:690px;
+  max-width:760px;
   background:rgba(0,0,0,.30);
   border:1px solid rgba(255,255,255,.10);
   border-radius:22px;
@@ -144,11 +144,23 @@ h1{
   line-height:1.55;
 }
 
+.cloudflare-box{
+  margin-top:18px;
+  max-width:100%;
+  overflow:auto;
+  padding:18px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:14px;
+}
+
 .verifier{
   width:220px;
   height:220px;
+  margin:44px auto 0;
   border-radius:50%;
-  position:relative;
+  position:sticky;
+  top:40px;
   display:grid;
   place-items:center;
   background:
@@ -161,9 +173,9 @@ h1{
   inset:18px;
   border-radius:50%;
   border:2px solid rgba(47,128,237,.58);
-  border-top-color:rgba(98,168,255,.95);
-  border-right-color:rgba(0,204,51,.45);
-  animation:spin 9s linear infinite;
+  border-top-color:#62a8ff;
+  border-right-color:rgba(0,204,51,.35);
+  animation:spin 10s linear infinite;
   box-shadow:0 0 35px rgba(47,128,237,.18);
 }
 
@@ -172,8 +184,8 @@ h1{
   position:absolute;
   inset:46px;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.09);
-  background:rgba(0,0,0,.16);
+  background:rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.08);
 }
 
 @keyframes spin{
@@ -185,40 +197,6 @@ h1{
   z-index:2;
   width:82px;
   filter:drop-shadow(0 0 20px rgba(98,168,255,.5));
-}
-
-.info{
-  margin-top:32px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-
-.item{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:16px;
-  padding:15px 17px;
-}
-
-.label{
-  color:var(--muted);
-  text-transform:uppercase;
-  font-size:.62rem;
-  letter-spacing:1.4px;
-  margin-bottom:9px;
-}
-
-.value{
-  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-  font-size:.82rem;
-  font-weight:800;
-  color:#dfffe6;
-  word-break:break-all;
-}
-
-.warning{
-  color:var(--blue2);
 }
 
 .actions{
@@ -250,6 +228,7 @@ h1{
 .note{
   color:var(--muted);
   font-size:.9rem;
+  max-width:720px;
 }
 
 .footer{
@@ -263,22 +242,10 @@ h1{
   color:#7d887f;
   font-size:.82rem;
 }
-.cloudflare-box{
-  margin-top:18px;
-  padding:16px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:14px;
-  color:#dfffe6;
-  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-  font-size:.86rem;
-  word-break:break-word;
-}
 
 @media(max-width:850px){
   .hero{grid-template-columns:1fr}
   .verifier{display:none}
-  .info{grid-template-columns:1fr 1fr}
   h1{font-size:2.35rem}
   .card{padding:30px}
   .logo{height:58px}
@@ -286,7 +253,6 @@ h1{
 
 @media(max-width:520px){
   body{padding:14px}
-  .info{grid-template-columns:1fr}
   .card{padding:24px}
   h1{font-size:2rem}
   .logo{height:48px}
@@ -314,16 +280,24 @@ h1{
         Estamos experimentando una incidencia temporal en la plataforma. El servicio no pudo procesar la solicitud en este momento.
       </p>
 
-<div class="alert">
-  <div class="alert-title">Nuestro equipo técnico ya puede revisar este evento</div>
-  <p>
-    Reintenta en unos minutos. Si el problema persiste, comparte el Ray ID, tu IP y la hora del evento con soporte para acelerar el diagnóstico.
-  </p>
+      <div class="alert">
+        <div class="alert-title">Nuestro equipo técnico ya puede revisar este evento</div>
+        <p>
+          Reintenta en unos minutos. Si el problema persiste, comparte el Ray ID, tu IP y la hora del evento con soporte para acelerar el diagnóstico.
+        </p>
 
-  <div class="cloudflare-box">
-    ::CLOUDFLARE_ERROR_500S_BOX::
-  </div>
-</div>
+        <div class="cloudflare-box">
+          ::CLOUDFLARE_ERROR_500S_BOX::
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="javascript:location.reload();">Reintentar</a>
+        <div class="note">
+          Si continúa el error, contacta a soporte indicando que recibiste un error de clase 5xx.
+        </div>
+      </div>
+    </div>
 
     <div class="verifier" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none">
@@ -335,33 +309,6 @@ h1{
       </svg>
     </div>
   </section>
-
-  <section class="info">
-    <div class="item">
-      <div class="label">Ray ID</div>
-      <div class="value">::RAY_ID::</div>
-    </div>
-
-    <div class="item">
-      <div class="label">Client IP</div>
-      <div class="value">::CLIENT_IP::</div>
-    </div>
-
-    <div class="item">
-      <div class="label">Ubicación</div>
-      <div class="value">::GEO::</div>
-    </div>
-
-    <div class="item">
-      <div class="label">Estado</div>
-      <div class="value warning">Incidencia temporal</div>
-    </div>
-  </section>
-
-  <div class="actions">
-    <a class="btn" href="javascript:location.reload();">Reintentar</a>
-    <div class="note">Si continúa el error, contacta a soporte indicando que recibiste un error de clase 5xx.</div>
-  </div>
 
   <footer class="footer">
     <div>Affiniti © 2026</div>
