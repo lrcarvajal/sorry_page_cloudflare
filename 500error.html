@@ -263,6 +263,17 @@ h1{
   color:#7d887f;
   font-size:.82rem;
 }
+.cloudflare-box{
+  margin-top:18px;
+  padding:16px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:14px;
+  color:#dfffe6;
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:.86rem;
+  word-break:break-word;
+}
 
 @media(max-width:850px){
   .hero{grid-template-columns:1fr}
@@ -303,13 +314,16 @@ h1{
         Estamos experimentando una incidencia temporal en la plataforma. El servicio no pudo procesar la solicitud en este momento.
       </p>
 
-      <div class="alert">
-        <div class="alert-title">Nuestro equipo técnico ya puede revisar este evento</div>
-        <p>
-          Reintenta en unos minutos. Si el problema persiste, comparte el Ray ID, tu IP y la hora del evento con soporte para acelerar el diagnóstico.
-        </p>
-      </div>
-    </div>
+<div class="alert">
+  <div class="alert-title">Nuestro equipo técnico ya puede revisar este evento</div>
+  <p>
+    Reintenta en unos minutos. Si el problema persiste, comparte el Ray ID, tu IP y la hora del evento con soporte para acelerar el diagnóstico.
+  </p>
+
+  <div class="cloudflare-box">
+    ::CLOUDFLARE_ERROR_500S_BOX::
+  </div>
+</div>
 
     <div class="verifier" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none">
