@@ -8,10 +8,10 @@
 <style>
 :root{
   --green:#00cc33;
-  --green2:#45ff77;
+  --green2:#48ff7a;
   --bg:#030603;
-  --text:#f4fff6;
-  --muted:#a7b3aa;
+  --text:#f5fff7;
+  --muted:#a7b5aa;
   --line:rgba(0,204,51,.38);
   --blue:#2f80ed;
 }
@@ -22,8 +22,8 @@ body{
   margin:0;
   min-height:100vh;
   background:
-    radial-gradient(circle at 12% 10%,rgba(0,204,51,.20),transparent 30%),
-    radial-gradient(circle at 90% 80%,rgba(47,128,237,.18),transparent 28%),
+    radial-gradient(circle at 12% 10%,rgba(0,204,51,.22),transparent 30%),
+    radial-gradient(circle at 88% 82%,rgba(47,128,237,.18),transparent 30%),
     linear-gradient(135deg,#020302,#071107 55%,#020302);
   color:var(--text);
   font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
@@ -48,7 +48,7 @@ body:before{
   position:relative;
   width:100%;
   max-width:1120px;
-  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.022));
   border:1px solid var(--line);
   border-radius:26px;
   padding:42px;
@@ -68,60 +68,53 @@ body:before{
 
 .brand{
   display:flex;
-  justify-content:flex-start;
   align-items:center;
-  margin-bottom:45px;
-}
-
-.logo-wrap{
-  display:flex;
-  align-items:center;
-  gap:14px;
+  margin-bottom:42px;
 }
 
 .logo{
-  height:58px;
+  height:70px;
   width:auto;
   display:block;
 }
 
 .hero{
   display:grid;
-  grid-template-columns:1fr 280px;
-  gap:50px;
+  grid-template-columns:1fr 230px;
+  gap:46px;
   align-items:center;
 }
 
 h1{
   margin:0;
-  font-size:3.15rem;
-  line-height:1.03;
-  letter-spacing:-1.6px;
+  font-size:3.05rem;
+  line-height:1.04;
+  letter-spacing:-1.4px;
 }
 
 .subtitle{
-  margin:18px 0 30px;
+  margin:18px 0 28px;
   max-width:680px;
   color:var(--muted);
-  font-size:1.1rem;
+  font-size:1.08rem;
   line-height:1.55;
 }
 
 .challenge{
   max-width:690px;
-  background:rgba(0,0,0,.28);
+  background:rgba(0,0,0,.30);
   border:1px solid rgba(255,255,255,.10);
   border-radius:22px;
-  padding:28px;
+  padding:24px;
 }
 
 .challenge-title{
   display:flex;
   align-items:center;
-  gap:14px;
-  font-size:1.15rem;
+  gap:13px;
+  font-size:1.05rem;
   font-weight:900;
-  margin-bottom:20px;
+  margin-bottom:16px;
 }
 
 .pulse{
@@ -129,7 +122,6 @@ h1{
   height:13px;
   border-radius:50%;
   background:var(--green);
-  box-shadow:0 0 0 rgba(0,204,51,.7);
   animation:pulse 1.8s infinite;
 }
 
@@ -143,58 +135,84 @@ h1{
   background:#fff;
   color:#111;
   border-radius:14px;
-  min-height:96px;
-  padding:18px;
+  min-height:72px;
+  padding:14px;
   display:flex;
   align-items:center;
   justify-content:center;
   box-shadow:0 18px 45px rgba(0,0,0,.25);
 }
 
-.shield{
-  width:260px;
-  height:260px;
-  border-radius:36px;
-  background:
-    radial-gradient(circle at 38% 28%,rgba(69,255,119,.38),transparent 34%),
-    linear-gradient(145deg,rgba(0,204,51,.20),rgba(47,128,237,.14));
-  border:1px solid rgba(0,204,51,.34);
+.verifier{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  position:relative;
   display:grid;
   place-items:center;
-  box-shadow:inset 0 0 45px rgba(0,204,51,.16),0 25px 70px rgba(0,0,0,.45);
+  background:
+    radial-gradient(circle,rgba(69,255,119,.22),rgba(47,128,237,.10) 44%,transparent 65%);
 }
 
-.shield svg{
-  width:116px;
-  filter:drop-shadow(0 0 22px rgba(69,255,119,.45));
+.verifier:before{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border-radius:50%;
+  border:2px solid rgba(69,255,119,.55);
+  border-top-color:rgba(47,128,237,.9);
+  border-right-color:rgba(0,204,51,.12);
+  animation:spin 9s linear infinite;
+  box-shadow:0 0 35px rgba(0,204,51,.18);
+}
+
+.verifier:after{
+  content:"";
+  position:absolute;
+  inset:46px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.09);
+  background:rgba(0,0,0,.16);
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.verifier svg{
+  position:relative;
+  z-index:2;
+  width:76px;
+  filter:drop-shadow(0 0 20px rgba(69,255,119,.5));
 }
 
 .info{
-  margin-top:34px;
+  margin-top:32px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:16px;
+  gap:14px;
 }
 
 .item{
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.09);
-  border-radius:18px;
-  padding:18px 20px;
+  border-radius:16px;
+  padding:15px 17px;
 }
 
 .label{
   color:var(--muted);
   text-transform:uppercase;
-  font-size:.68rem;
-  letter-spacing:1.5px;
-  margin-bottom:10px;
+  font-size:.62rem;
+  letter-spacing:1.4px;
+  margin-bottom:9px;
 }
 
 .value{
   font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-  font-size:.92rem;
+  font-size:.82rem;
   font-weight:800;
+  color:#dfffe6;
   word-break:break-all;
 }
 
@@ -203,23 +221,24 @@ h1{
 }
 
 .footer{
-  margin-top:34px;
+  margin-top:32px;
   padding-top:22px;
   border-top:1px solid rgba(255,255,255,.08);
   display:flex;
   justify-content:space-between;
   gap:16px;
   flex-wrap:wrap;
-  color:#7c887f;
+  color:#7d887f;
   font-size:.82rem;
 }
 
 @media(max-width:850px){
   .hero{grid-template-columns:1fr}
-  .shield{display:none}
+  .verifier{display:none}
   .info{grid-template-columns:1fr 1fr}
   h1{font-size:2.35rem}
   .card{padding:30px}
+  .logo{height:58px}
 }
 
 @media(max-width:520px){
@@ -227,7 +246,7 @@ h1{
   .info{grid-template-columns:1fr}
   .card{padding:24px}
   h1{font-size:2rem}
-  .logo{height:46px}
+  .logo{height:48px}
 }
 </style>
 </head>
@@ -236,9 +255,7 @@ h1{
 <main class="card">
 
   <header class="brand">
-    <div class="logo-wrap">
-      <img class="logo" src="image.png" alt="Affiniti">
-    </div>
+    <img class="logo" src="image.png" alt="Affiniti">
   </header>
 
   <section class="hero">
@@ -246,8 +263,7 @@ h1{
       <h1>Verificación de seguridad</h1>
 
       <p class="subtitle">
-        Para proteger esta aplicación, es necesario realizar una verificación adicional antes de continuar.
-        Este proceso ayuda a prevenir accesos automatizados y posibles actividades maliciosas.
+        Se requiere una verificación adicional antes de permitir el acceso. Esta comprobación ayuda a proteger la plataforma frente a tráfico automatizado y actividades potencialmente maliciosas.
       </p>
 
       <div class="challenge">
@@ -262,10 +278,10 @@ h1{
       </div>
     </div>
 
-    <div class="shield" aria-hidden="true">
+    <div class="verifier" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none">
-        <path d="M12 2.5L4.8 5.7V10.6C4.8 15.3 7.8 19.4 12 21.2C16.2 19.4 19.2 15.3 19.2 10.6V5.7L12 2.5Z" stroke="#45ff77" stroke-width="1.8"/>
-        <path d="M8.4 12.2L10.7 14.5L15.8 9.4" stroke="#45ff77" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 2.5L4.8 5.7V10.6C4.8 15.3 7.8 19.4 12 21.2C16.2 19.4 19.2 15.3 19.2 10.6V5.7L12 2.5Z" stroke="#48ff7a" stroke-width="1.8"/>
+        <path d="M8.4 12.2L10.7 14.5L15.8 9.4" stroke="#48ff7a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
   </section>
@@ -277,7 +293,7 @@ h1{
     </div>
 
     <div class="item">
-      <div class="label">IP</div>
+      <div class="label">Client IP</div>
       <div class="value">::CLIENT_IP::</div>
     </div>
 
@@ -294,7 +310,7 @@ h1{
 
   <footer class="footer">
     <div>Affiniti © 2026</div>
-    <div>Protegido por Cloudflare · Administrado por Affiniti</div>
+    <div>Protegido por Cloudflare • Servicio administrado por Affiniti</div>
   </footer>
 
 </main>
