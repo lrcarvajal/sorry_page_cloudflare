@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <title>Affiniti - Verificación de seguridad</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style>
 :root{
   --green:#00cc33;
-  --green2:#43ff75;
-  --bg:#050705;
-  --card:#0d1110;
-  --line:rgba(0,204,51,.35);
-  --text:#f4fff7;
-  --muted:#9aa8a0;
-  --blue:#3b82f6;
+  --green2:#45ff77;
+  --bg:#030603;
+  --card:#0b100d;
+  --text:#f4fff6;
+  --muted:#9aa89d;
+  --line:rgba(0,204,51,.38);
+  --blue:#2f80ed;
 }
 
 *{box-sizing:border-box}
@@ -23,42 +23,37 @@ body{
   margin:0;
   min-height:100vh;
   background:
-    radial-gradient(circle at top left, rgba(0,204,51,.22), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(59,130,246,.16), transparent 35%),
-    linear-gradient(135deg,#020302,#071007 50%,#020302);
+    radial-gradient(circle at 12% 10%,rgba(0,204,51,.20),transparent 30%),
+    radial-gradient(circle at 90% 80%,rgba(47,128,237,.18),transparent 28%),
+    linear-gradient(135deg,#020302,#071107 55%,#020302);
   color:var(--text);
   font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:24px;
-  overflow:hidden;
+  padding:28px;
 }
 
 body:before{
   content:"";
-  position:absolute;
+  position:fixed;
   inset:0;
   background-image:
-    linear-gradient(rgba(0,204,51,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,204,51,.05) 1px, transparent 1px);
-  background-size:44px 44px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent);
+    linear-gradient(rgba(0,204,51,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,204,51,.045) 1px,transparent 1px);
+  background-size:42px 42px;
+  pointer-events:none;
 }
 
 .card{
   position:relative;
-  z-index:1;
-  max-width:860px;
   width:100%;
+  max-width:1120px;
   background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
   border:1px solid var(--line);
-  border-radius:24px;
-  padding:38px;
-  box-shadow:
-    0 30px 90px rgba(0,0,0,.65),
-    0 0 45px rgba(0,204,51,.16);
-  backdrop-filter:blur(18px);
+  border-radius:26px;
+  padding:42px;
+  box-shadow:0 30px 90px rgba(0,0,0,.65),0 0 55px rgba(0,204,51,.15);
   overflow:hidden;
 }
 
@@ -68,222 +63,270 @@ body:before{
   top:0;
   left:0;
   right:0;
-  height:4px;
-  background:linear-gradient(90deg,var(--green),var(--blue),var(--green2));
+  height:5px;
+  background:linear-gradient(90deg,var(--green),var(--green2),var(--blue));
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:16px;
-  margin-bottom:30px;
+  justify-content:space-between;
+  margin-bottom:44px;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:1.25rem;
+  font-weight:800;
 }
 
 .logo{
   height:44px;
+  max-width:220px;
+}
+
+.logo-fallback{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  color:#061006;
+  background:var(--green);
+  border-radius:10px;
+  font-weight:900;
+  font-size:1.8rem;
 }
 
 .badge{
-  margin-left:auto;
-  border:1px solid rgba(0,204,51,.45);
-  background:rgba(0,204,51,.09);
+  border:1px solid rgba(0,204,51,.55);
   color:var(--green2);
-  padding:8px 13px;
+  background:rgba(0,204,51,.09);
+  padding:10px 18px;
   border-radius:999px;
   font-size:.78rem;
-  font-weight:700;
-  letter-spacing:.4px;
+  font-weight:900;
+  letter-spacing:.9px;
 }
 
 .hero{
   display:grid;
-  grid-template-columns:1fr 230px;
-  gap:34px;
+  grid-template-columns:1fr 280px;
+  gap:50px;
   align-items:center;
 }
 
 h1{
   margin:0;
-  font-size:2.55rem;
-  line-height:1.05;
-  letter-spacing:-1px;
+  font-size:3.15rem;
+  line-height:1.03;
+  letter-spacing:-1.6px;
 }
 
 .subtitle{
+  margin:18px 0 30px;
+  max-width:680px;
   color:var(--muted);
-  font-size:1.08rem;
-  margin:16px 0 24px;
-  max-width:560px;
+  font-size:1.1rem;
+  line-height:1.55;
 }
 
-.challenge-box{
-  border:1px solid rgba(255,255,255,.1);
+.challenge{
+  max-width:690px;
   background:rgba(0,0,0,.28);
-  border-radius:18px;
-  padding:24px;
-  margin-top:22px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:22px;
+  padding:28px;
 }
 
 .challenge-title{
   display:flex;
   align-items:center;
-  gap:10px;
-  font-weight:800;
-  margin-bottom:16px;
-  color:#fff;
+  gap:14px;
+  font-size:1.15rem;
+  font-weight:900;
+  margin-bottom:20px;
 }
 
-.dot{
-  width:10px;
-  height:10px;
+.pulse{
+  width:13px;
+  height:13px;
   border-radius:50%;
   background:var(--green);
-  box-shadow:0 0 18px var(--green);
+  box-shadow:0 0 0 rgba(0,204,51,.7);
+  animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(0,204,51,.65)}
+  70%{box-shadow:0 0 0 15px rgba(0,204,51,0)}
+  100%{box-shadow:0 0 0 0 rgba(0,204,51,0)}
 }
 
 .captcha{
   background:#fff;
   color:#111;
-  border-radius:12px;
+  border-radius:14px;
+  min-height:96px;
   padding:18px;
-  min-height:86px;
   display:flex;
   align-items:center;
   justify-content:center;
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
 }
 
 .shield{
-  width:210px;
-  height:210px;
-  border-radius:34px;
+  width:260px;
+  height:260px;
+  border-radius:36px;
   background:
-    radial-gradient(circle at 35% 25%, rgba(67,255,117,.35), transparent 30%),
-    linear-gradient(145deg, rgba(0,204,51,.2), rgba(59,130,246,.14));
-  border:1px solid rgba(0,204,51,.35);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:inset 0 0 35px rgba(0,204,51,.12);
+    radial-gradient(circle at 38% 28%,rgba(69,255,119,.38),transparent 34%),
+    linear-gradient(145deg,rgba(0,204,51,.20),rgba(47,128,237,.14));
+  border:1px solid rgba(0,204,51,.34);
+  display:grid;
+  place-items:center;
+  box-shadow:inset 0 0 45px rgba(0,204,51,.16),0 25px 70px rgba(0,0,0,.45);
 }
 
 .shield svg{
-  width:104px;
-  filter:drop-shadow(0 0 18px rgba(0,204,51,.45));
+  width:116px;
+  filter:drop-shadow(0 0 22px rgba(69,255,119,.45));
 }
 
 .info{
-  margin-top:26px;
+  margin-top:34px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-  gap:12px;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
 
 .item{
-  background:rgba(255,255,255,.035);
-  border:1px solid rgba(255,255,255,.075);
-  border-radius:14px;
-  padding:13px 15px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;
+  padding:18px 20px;
 }
 
 .label{
   color:var(--muted);
   text-transform:uppercase;
-  font-size:.62rem;
-  letter-spacing:1px;
-  margin-bottom:6px;
+  font-size:.68rem;
+  letter-spacing:1.5px;
+  margin-bottom:10px;
 }
 
 .value{
   font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
-  font-size:.86rem;
+  font-size:.92rem;
+  font-weight:800;
   word-break:break-all;
 }
 
+.ok{
+  color:var(--green2);
+}
+
 .footer{
-  margin-top:28px;
-  padding-top:20px;
+  margin-top:34px;
+  padding-top:22px;
   border-top:1px solid rgba(255,255,255,.08);
   display:flex;
   justify-content:space-between;
   gap:16px;
   flex-wrap:wrap;
-  color:#718075;
-  font-size:.78rem;
+  color:#7c887f;
+  font-size:.82rem;
 }
 
-.status{
-  color:var(--green2);
-  font-weight:700;
-}
-
-@media(max-width:760px){
+@media(max-width:850px){
   .hero{grid-template-columns:1fr}
   .shield{display:none}
-  h1{font-size:2rem}
-  .card{padding:26px}
+  .info{grid-template-columns:1fr 1fr}
+  h1{font-size:2.35rem}
+  .card{padding:30px}
   .badge{display:none}
+}
+
+@media(max-width:520px){
+  body{padding:14px}
+  .info{grid-template-columns:1fr}
+  .card{padding:24px}
+  h1{font-size:2rem}
 }
 </style>
 </head>
 
 <body>
-  <main class="card">
-    <header class="brand">
-      <!-- Reemplaza este texto por tu logo base64 o imagen -->
-      <img class="logo" src="LOGO_AFFINITI_AQUI" alt="Affiniti">
-      <div class="badge">SECURITY CHECK</div>
-    </header>
+<main class="card">
 
-    <section class="hero">
-      <div>
-        <h1>Verificación de seguridad</h1>
-        <p class="subtitle">
-          Estamos validando esta solicitud para proteger la plataforma frente a tráfico automatizado, bots o actividad sospechosa.
-        </p>
+  <header class="brand">
+    <div class="logo-wrap">
+      <!-- Reemplaza el src por tu logo base64 real -->
+      <!-- Ejemplo: src="data:image/png;base64,AAAA..." -->
+      <img class="logo" src="LOGO_AFFINITI_AQUI" alt="Affiniti" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+      <div class="logo-fallback" style="display:none;">A</div>
+      <span>Affiniti Security</span>
+    </div>
 
-        <div class="challenge-box">
-          <div class="challenge-title">
-            <span class="dot"></span>
-            Completa el desafío para continuar
-          </div>
+    <div class="badge">AFFINITI SECURITY</div>
+  </header>
 
-          <div class="captcha">
-            ::CAPTCHA_BOX::
-          </div>
+  <section class="hero">
+    <div>
+      <h1>Verificación de seguridad</h1>
+
+      <p class="subtitle">
+        Affiniti Security detectó que esta solicitud requiere una validación adicional para proteger la aplicación frente a bots, automatización o actividad inusual.
+      </p>
+
+      <div class="challenge">
+        <div class="challenge-title">
+          <span class="pulse"></span>
+          Completa el desafío para continuar
+        </div>
+
+        <div class="captcha">
+          ::CAPTCHA_BOX::
         </div>
       </div>
+    </div>
 
-      <div class="shield">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2L4.5 5.3V10.5C4.5 15.2 7.7 19.6 12 21C16.3 19.6 19.5 15.2 19.5 10.5V5.3L12 2Z" stroke="#43ff75" stroke-width="1.8"/>
-          <path d="M8.5 12.1L10.8 14.4L15.8 9.4" stroke="#43ff75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-    </section>
+    <div class="shield" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 2.5L4.8 5.7V10.6C4.8 15.3 7.8 19.4 12 21.2C16.2 19.4 19.2 15.3 19.2 10.6V5.7L12 2.5Z" stroke="#45ff77" stroke-width="1.8"/>
+        <path d="M8.4 12.2L10.7 14.5L15.8 9.4" stroke="#45ff77" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
 
-    <section class="info">
-      <div class="item">
-        <div class="label">Ray ID</div>
-        <div class="value">::RAY_ID::</div>
-      </div>
-      <div class="item">
-        <div class="label">IP</div>
-        <div class="value">::CLIENT_IP::</div>
-      </div>
-      <div class="item">
-        <div class="label">Ubicación</div>
-        <div class="value">::GEO::</div>
-      </div>
-      <div class="item">
-        <div class="label">Estado</div>
-        <div class="value status">Validación requerida</div>
-      </div>
-    </section>
+  <section class="info">
+    <div class="item">
+      <div class="label">Ray ID</div>
+      <div class="value">::RAY_ID::</div>
+    </div>
 
-    <footer class="footer">
-      <div>Affiniti © 2026</div>
-      <div>WAF · Bot Protection · Cloudflare Security</div>
-    </footer>
-  </main>
+    <div class="item">
+      <div class="label">IP</div>
+      <div class="value">::CLIENT_IP::</div>
+    </div>
+
+    <div class="item">
+      <div class="label">Ubicación</div>
+      <div class="value">::GEO::</div>
+    </div>
+
+    <div class="item">
+      <div class="label">Estado</div>
+      <div class="value ok">Validación requerida</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>Affiniti © 2026</div>
+    <div>WAF · Managed Challenge · Cloudflare Security</div>
+  </footer>
+
+</main>
 </body>
 </html>
