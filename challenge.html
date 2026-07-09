@@ -10,9 +10,8 @@
   --green:#00cc33;
   --green2:#45ff77;
   --bg:#030603;
-  --card:#0b100d;
   --text:#f4fff6;
-  --muted:#9aa89d;
+  --muted:#a7b3aa;
   --line:rgba(0,204,51,.38);
   --blue:#2f80ed;
 }
@@ -69,45 +68,21 @@ body:before{
 
 .brand{
   display:flex;
+  justify-content:flex-start;
   align-items:center;
-  justify-content:space-between;
-  margin-bottom:44px;
+  margin-bottom:45px;
 }
 
 .logo-wrap{
   display:flex;
   align-items:center;
-  gap:12px;
-  font-size:1.25rem;
-  font-weight:800;
+  gap:14px;
 }
 
 .logo{
-  height:44px;
-  max-width:220px;
-}
-
-.logo-fallback{
-  width:44px;
-  height:44px;
-  display:grid;
-  place-items:center;
-  color:#061006;
-  background:var(--green);
-  border-radius:10px;
-  font-weight:900;
-  font-size:1.8rem;
-}
-
-.badge{
-  border:1px solid rgba(0,204,51,.55);
-  color:var(--green2);
-  background:rgba(0,204,51,.09);
-  padding:10px 18px;
-  border-radius:999px;
-  font-size:.78rem;
-  font-weight:900;
-  letter-spacing:.9px;
+  height:58px;
+  width:auto;
+  display:block;
 }
 
 .hero{
@@ -245,7 +220,6 @@ h1{
   .info{grid-template-columns:1fr 1fr}
   h1{font-size:2.35rem}
   .card{padding:30px}
-  .badge{display:none}
 }
 
 @media(max-width:520px){
@@ -253,6 +227,7 @@ h1{
   .info{grid-template-columns:1fr}
   .card{padding:24px}
   h1{font-size:2rem}
+  .logo{height:46px}
 }
 </style>
 </head>
@@ -262,14 +237,8 @@ h1{
 
   <header class="brand">
     <div class="logo-wrap">
-      <!-- Reemplaza el src por tu logo base64 real -->
-      <!-- Ejemplo: src="data:image/png;base64,AAAA..." -->
-      <img class="logo" src="LOGO_AFFINITI_AQUI" alt="Affiniti" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
-      <div class="logo-fallback" style="display:none;">A</div>
-      <span>Affiniti Security</span>
+      <img class="logo" src="image.png" alt="Affiniti">
     </div>
-
-    <div class="badge">AFFINITI SECURITY</div>
   </header>
 
   <section class="hero">
@@ -277,13 +246,14 @@ h1{
       <h1>Verificación de seguridad</h1>
 
       <p class="subtitle">
-        Affiniti Security detectó que esta solicitud requiere una validación adicional para proteger la aplicación frente a bots, automatización o actividad inusual.
+        Para proteger esta aplicación, es necesario realizar una verificación adicional antes de continuar.
+        Este proceso ayuda a prevenir accesos automatizados y posibles actividades maliciosas.
       </p>
 
       <div class="challenge">
         <div class="challenge-title">
           <span class="pulse"></span>
-          Completa el desafío para continuar
+          Confirma que eres una persona
         </div>
 
         <div class="captcha">
@@ -318,13 +288,13 @@ h1{
 
     <div class="item">
       <div class="label">Estado</div>
-      <div class="value ok">Validación requerida</div>
+      <div class="value ok">Esperando verificación</div>
     </div>
   </section>
 
   <footer class="footer">
     <div>Affiniti © 2026</div>
-    <div>WAF · Managed Challenge · Cloudflare Security</div>
+    <div>Protegido por Cloudflare · Administrado por Affiniti</div>
   </footer>
 
 </main>
